@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-st.title("SmartStore Inventory Optimization Dashboard")
+st.title("SmartStock Inventory Optimization Dashboard")
 
 file_path="../original_files/updated_dataset.csv"
 df=pd.read_csv(file_path)
@@ -28,4 +28,5 @@ st.subheader("Stock-out Risk Products")
 df["Sales_to_Stock_Ratio"] = df["Units_Sold"] / df["Opening_Stock"]
 df["Stockout_Risk"] = df["Sales_to_Stock_Ratio"] > 0.7
 st.dataframe(df[df["Stockout_Risk"] == True])
+
 
